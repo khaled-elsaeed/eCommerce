@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Insert a test user (username: admin, password: admin123)
--- Password is hashed using password_hash() in PHP
 INSERT INTO users (username, password, email) 
 VALUES ('admin', '$2y$10$8nOLXJw6l5h/Fl/kHUjq9OcF1JlS35ZDKyssS3wMqKBGEVXNgtKWO', 'admin@example.com')
 ON DUPLICATE KEY UPDATE id=id; 

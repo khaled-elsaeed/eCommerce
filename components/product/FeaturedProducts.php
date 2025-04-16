@@ -4,7 +4,6 @@
     <div class="container">
         <div class="featured-product-active hot-flower owl-carousel product-nav">
             <?php 
-            // Featured product data - in a real application, this would come from a database
             $featuredProducts = [
                 [
                     'imageUrl' => 'assets/img/product/product-1.jpg',
