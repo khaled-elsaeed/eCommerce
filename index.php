@@ -1,33 +1,12 @@
-<?php
-session_start();
-
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['error'] = "You must be logged in to access your account";
-    header('Location: login-register.php');
-    exit();
-}
-
-// Determine which panel to show based on URL parameter
-$activePanel = isset($_GET['panel']) ? (int)$_GET['panel'] : 1;
-
-// Load components
-require_once 'components/layout/Header.php';
-require_once 'components/common/Breadcrumb.php';
-require_once 'components/common/AccountPanel.php';
-require_once 'components/common/Notification.php';
-require_once 'components/layout/Footer.php';
-
-// Page title
-$pageTitle = "My Account";
-?>
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="zxx">
+    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>My Account - Sabujcha - Matcha eCommerce</title>
-    <meta name="description" content="Manage your account settings and information">
+    <title>Sabujcha - Matcha eCommerce Bootstrap4 Template</title>
+    <meta name="description" content="">
+    <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -48,34 +27,35 @@ $pageTitle = "My Account";
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <!-- Header Component -->
+    <!-- Header -->
     <?php include 'components/layout/Header.php'; ?>
     
-    <!-- Breadcrumb Component -->
-    <?php 
-    renderBreadcrumb("My Account", [
-        ['text' => 'My Account']
-    ]); 
-    ?>
+    <!-- Slider -->
+    <?php include 'components/home/Slider.php'; ?>
     
-    <!-- Notification Component -->
-    <?php renderNotification(); ?>
+    <!-- Featured Products -->
+    <?php include 'components/product/FeaturedProducts.php'; ?>
     
-    <!-- My Account Content Start -->
-    <div class="checkout-area pb-80 pt-100">
-        <div class="container">
-            <div class="row">
-                <div class="ml-auto mr-auto col-lg-9">
-                    <!-- Account Panel Component -->
-                    <?php renderAccountPanel($activePanel); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- My Account Content End -->
+    <!-- Banner -->
+    <?php include 'components/home/Banner.php'; ?>
     
-    <!-- Footer Component -->
+    <!-- New Products -->
+    <?php include 'components/product/NewProducts.php'; ?>
+    
+    <!-- Testimonial -->
+    <?php include 'components/home/Testimonial.php'; ?>
+    
+    <!-- Blog -->
+    <?php include 'components/home/Blog.php'; ?>
+    
+    <!-- Newsletter -->
+    <?php include 'components/common/Newsletter.php'; ?>
+    
+    <!-- Footer -->
     <?php include 'components/layout/Footer.php'; ?>
+    
+    <!-- Quick View Modal -->
+    <?php include 'components/common/QuickView.php'; ?>
     
     <!-- all js here -->
     <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
