@@ -117,8 +117,7 @@ function renderAccountPanel($activePanel = 1) {
                             </div>
                             <div class="entries-wrapper">
                                 <?php 
-                                // This would normally include a PHP script to fetch addresses from database
-                                $addresses = []; // Example structure: This would be populated from database
+                                $addresses = []; 
                                 if (!empty($addresses)): 
                                     foreach ($addresses as $address): 
                                 ?>
