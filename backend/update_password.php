@@ -29,7 +29,6 @@ if (isset($_POST['update_password'])) {
     }
     
     try {
-        // Get current password from database
         $stmt = $pdo->prepare("SELECT password FROM users WHERE id = :user_id");
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
@@ -37,7 +36,6 @@ if (isset($_POST['update_password'])) {
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            // Verify current password
             if (password_verify($current_password, $user['password'])) {
 
                 $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
