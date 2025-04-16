@@ -16,7 +16,6 @@ if (isset($_POST['update_password'])) {
     $confirm_password = $_POST['confirm_password'] ?? '';
     $user_id = $_SESSION['user_id'];
     
-    // Validate inputs
     if (empty($current_password) || empty($new_password) || empty($confirm_password)) {
         $_SESSION['error'] = "All password fields are required";
         header('Location: ../my-account.php');
@@ -40,10 +39,9 @@ if (isset($_POST['update_password'])) {
             
             // Verify current password
             if (password_verify($current_password, $user['password'])) {
-                // Hash new password
+
                 $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
                 
-                // Update password
                 $update_stmt = $pdo->prepare("UPDATE users SET password = :password WHERE id = :user_id");
                 $update_stmt->bindParam(':password', $hashed_password);
                 $update_stmt->bindParam(':user_id', $user_id);

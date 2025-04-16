@@ -19,7 +19,7 @@ if (isset($_POST['update_account'])) {
     $user_id = $_SESSION['user_id'];
 
     try {
-        // Update user information
+        
         $stmt = $pdo->prepare("
             UPDATE users 
             SET first_name = :first_name, 
@@ -39,7 +39,6 @@ if (isset($_POST['update_account'])) {
         
         $stmt->execute();
         
-        // Update session data
         $_SESSION['first_name'] = $first_name;
         $_SESSION['last_name'] = $last_name;
         $_SESSION['email'] = $email;
