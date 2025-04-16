@@ -3,7 +3,7 @@
     
 <?php
 session_start();
-// Store error messages in variables and clear session
+
 $login_error = '';
 $register_error = '';
 
